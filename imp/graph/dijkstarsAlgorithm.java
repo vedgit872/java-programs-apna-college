@@ -69,11 +69,10 @@ public class dijkstarsAlgorithm {
             var5[i] = new ArrayList<>();
         }
 
-        // Adding edges for a Directed Acyclic Graph (DAG)
         var5[0].add(new edge(0, 1, 1));
         var5[0].add(new edge(0, 2, 2));
         var5[1].add(new edge(1, 3, 3));
-        var5[2].add(new edge(2, 3, 1)); // No cycles
+        var5[2].add(new edge(2, 3, 1)); 
 
         dijkstars(var5,0);
     }
