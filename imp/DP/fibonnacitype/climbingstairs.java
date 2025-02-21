@@ -29,13 +29,23 @@ public class climbingstairs {
         }
         return dp[n];
     }
+    public static int varrecStairs(int n){
+        if (n==2||n==1) {
+            return n;
+        }
+        if(n==3){
+            return 4;
+        }
+        return varrecStairs(n-1)+varrecStairs(n-2)+varrecStairs(n-3);
+    }
     public static void main(String[] args) {
-        int n = 3;
+        int n = 5;
         System.out.println("Recursion: " + recStairs(n));
         
         int dp[] = new int[n + 1];
         System.out.println("Memoization: " + recStairs(n, dp));
         
         System.out.println("Tabulation: " + recStair(n));
+        System.out.println("variation 123: " + varrecStairs(n));
     }
 }
