@@ -15,7 +15,7 @@ public class lcs {
         if(l1==0 || l2==0){
             return 0;
         }
-        if(dp[l1][l2]!=0){
+        if(dp[l1][l2]!=-1){
             return dp[l1][l2];
         }
         if(str1.charAt(l1-1)==str2.charAt(l2-1)){
@@ -30,6 +30,12 @@ public class lcs {
         int l1=str1.length();
         int l2=str2.length();
         int dp[][]=new int[l1+1][l2+1];
+        for (int i = 0; i < dp.length; i++) {
+            dp[i][0]=0;
+        }
+        for (int i = 0; i < dp[0].length; i++) {
+            dp[0][i]=0;
+        }
         for (int i =1; i < dp.length; i++) {
             for (int j = 1; j < dp[0].length; j++) {
                 if (str1.charAt(i-1)==str2.charAt(j-1)) {
@@ -48,6 +54,11 @@ public class lcs {
         System.out.println(lcs_recursion(str1, str2, str1.length(),str2.length()));
         
         int dp[][]=new int[str1.length()+1][str2.length()+1];
+        for (int i = 0; i < dp.length; i++) {
+            for (int j = 0; j < dp[0].length; j++) {
+                dp[i][j]=-1;
+            }
+        }
         System.out.println(lcs_memoization(str1, str2, str1.length(),str2.length(),dp));
         
         System.out.println(lcs_tabulation(str1, str2));
